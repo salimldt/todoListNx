@@ -19,6 +19,7 @@ export default {
 			const todo = await this.$axios.$post('https://my-json-server.typicode.com/zwOk9/todoList/todo', { title: this.newTodo, checked:false })
     	
     		this.$store.commit('addTodo' , todo)
+    		this.newTodo=''
 			
 		}
 	}

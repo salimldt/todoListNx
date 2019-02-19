@@ -1,12 +1,14 @@
-<template>
+<template class="template">
+
+  
+    <list/>
    
-  <list/>
-    
 </template>
 
 <script>
 import { mapState } from 'vuex'
 import List from '~/components/List.vue'
+// import Logo from '~/components/AppLogo.vue'
 import axios from 'axios'
 
 export default {
@@ -31,3 +33,12 @@ export default {
   }
 }
 </script>
+<style>
+  
+  html {
+    background: lightgray;
+  }
+  html, body, #__layout, #__layout > div, #__nuxt, .flex-colum{
+    height: 100%;
+  }
+</style>

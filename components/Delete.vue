@@ -1,6 +1,6 @@
 <template>
-	<div>
-		<a href="#" @click.prevent='del(item)'><img src="~assets/delete.png" width=20px></a>
+	<div class="delete">
+		<a href="#" @click.prevent='del(item)'><img src="~assets/delete.png" width=35px></a>
 		<!-- <button  @click.prevent='del(item)'>supp</button> -->
    			
 	</div>
@@ -29,3 +29,11 @@ export default {
 
 
 </script>
+
+<style>
+	
+	.delete{
+		padding-top: 5px;
+		padding-left: 17px;
+	}
+</style>

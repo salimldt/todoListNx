@@ -1,14 +1,15 @@
 <template>
+	
 	<div class="flex-colum">
-
+		<h1>Todo List</h1>
 		<div>
 			<add-todo/>
 		</div>
 
 		<ul>
-        	<li v-for="(item, id) in list" :key="id"><p>{{item.title}}</p> 
-        	<update-todo :item="item"/>
-        	<delete :item="item"/> </li>
+        	<li v-for="(item, id) in list" :key="id"><div class="todo title"><p>{{item.title}}</p></div> 
+        	<update-todo  class="tool-update" :item="item"/>
+        	<delete  :item="item"/> </li>
         </ul>
 		
 	</div>
@@ -52,10 +53,31 @@ export default {
 
 ul{
 	list-style: none;
+	padding:0;
 }
 li{
 	display: flex;
-	margin-left: -39px;
+	/*margin-left: -39px;*/
 	padding: 10px
+}
+li div,p{
+	/*padding-left: 30px;*/
+}
+.title p{
+	font-size: 2em;
+    /*width: 60px;*/
+    overflow: hidden;
+    padding: 0;
+}
+.tool-update{
+	width: 202px;
+    line-height: 38px;
+    margin-left: 19px;
+}
+.tool-update input, .tool-update input{
+	/*padding-left: 20px;*/
+}
+.todo {
+	width: 24%;
 }
 </style>

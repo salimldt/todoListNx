@@ -16,7 +16,7 @@ import axios from 'axios'
 export default {
 	props:['item'],
 	fetch({ store }) {
-    	store.commit('updateData')
+    	store.dispatch('updateData')
  	},
 	data(){
 		return{
@@ -35,11 +35,11 @@ export default {
 			if(event.target.type === "checkbox"){
 				console.log("sucess")
 				const todo = await this.$axios.$put('https://my-json-server.typicode.com/zwOk9/todoList/todo/' +this.item.id, {id:this.item.id,title:this.item.title,checked:event.target.checked})
-				this.$store.commit('updateData' , todo)
+				this.$store.dispatch('updateData' , todo)
 			}
 			if(event.target.type === "text"){
 				 const todo = await this.$axios.$put('https://my-json-server.typicode.com/zwOk9/todoList/todo/' +this.item.id, {id:this.item.id,title:event.target.value,checked:this.item.checked})
-				 this.$store.commit('updateData' , todo)
+				 this.$store.dispatch('updateData' , todo)
          this.edit=!this.edit
 			}
 			

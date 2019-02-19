@@ -11,9 +11,9 @@ import axios from 'axios'
 
 export default {
 	props:['item'],
-	fetch({ store }) {
-    	store.commit('remove')
- 	 },
+	// fetch({ store }) {
+ //    	store.dispatch('remove')
+ // 	 },
 	computed: mapState([
     	'list'
   	]),
@@ -22,7 +22,7 @@ export default {
 			console.log(item.id)
 			const todo =await this.$axios.$delete('https://my-json-server.typicode.com/zwOk9/todoList/todo/' +item.id)
 			console.log(todo)
-			this.$store.commit('remove' , item)
+			this.$store.dispatch('remove' , item)
 		}
 	}
 }

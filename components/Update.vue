@@ -40,13 +40,14 @@ export default {
 			if(event.target.type === "text"){
 				 const todo = await this.$axios.$put('https://my-json-server.typicode.com/zwOk9/todoList/todo/' +this.item.id, {id:this.item.id,title:event.target.value,checked:this.item.checked})
 				 this.$store.commit('updateData' , todo)
+         this.edit=!this.edit
 			}
-			this.edit=!this.edit
+			
 			  
 			// 
 		},
 		deleteEdit(){
-			this.edit=!this.edit
+			this.edit=false
 		}
 	}
 }

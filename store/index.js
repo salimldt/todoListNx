@@ -20,16 +20,27 @@ export const mutations = {
   remove (state, todo) {
     state.list = state.list.filter(i => i !== todo)
   },
-  toggle (state, todo) {
-    todo.done = !todo.done
-  },
+  // toggle (state, todo) {
+  //   todo.done = !todo.done
+  // },
   addData(state, todos){
     state.list = todos
-  },
+  }
 
 
 }
 
 export const actions= {
-  
+  updateData(state,todo){
+    state.commit("updateData", todo)
+  },
+  remove (state, todo) {
+    state.commit("remove", todo)
+  },
+  addTodo (state, todo) {
+    state.commit("addTodo", todo)
+  },
+  addData (state, todo) {
+    state.commit("addData", todo)
+  }
 }

@@ -7,7 +7,7 @@
 		</div>
 
 		<ul>
-        	<li v-for="(item, id) in list" :key="id"><div class="todo title"><p>{{item.title}}</p></div> 
+        	<li v-for="(item, id) in list" :key="id"><div class="todo title " :class="{  'text-through': item.checked }"><p>{{item.title}}</p></div> 
         	<update-todo  class="tool-update" :item="item"/>
         	<delete  :item="item"/> </li>
         </ul>
@@ -44,6 +44,9 @@ export default {
 </script>
 
 <style>
+.text-through{
+	text-decoration: line-through;
+}
 .flex-colum{
 	display: flex;
     justify-content: center;

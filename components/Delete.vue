@@ -19,10 +19,10 @@ export default {
   	]),
 	methods:{
 		async del(item){
-			console.log(item.id)
 			const todo =await this.$axios.$delete('https://my-json-server.typicode.com/zwOk9/todoList/todo/' +item.id)
-			console.log(todo)
 			this.$store.dispatch('remove' , item)
+			this.$store.dispatch('alertSuccess' , 'Delete')
+        	setTimeout(() =>{ this.$store.commit('mutationSucess', false ) }, 2000)
 		}
 	}
 }

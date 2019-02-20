@@ -1,6 +1,8 @@
 
 export const state = () => ({
-  list: [{}]
+  list: [{}],
+  success:false,
+  alert:''
 })
 
 export const mutations = {
@@ -25,9 +27,17 @@ export const mutations = {
   // },
   addData(state, todos){
     state.list = todos
-  }
-
-
+  },
+  alertSuccess(state ,text){
+    
+    state.success=true
+    state.alert=text
+  },
+  mutationSucess(state, value) {
+      // merge data with previous state
+      
+     state.success=false
+    }
 }
 
 export const actions= {
@@ -42,5 +52,9 @@ export const actions= {
   },
   addData (state, todo) {
     state.commit("addData", todo)
+  },
+  alertSuccess(state ,text){
+    state.commit("alertSuccess", text)
+    
   }
 }

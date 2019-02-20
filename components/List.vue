@@ -11,9 +11,9 @@
         	<update-todo  class="tool-update" :item="item"/>
         	<delete  :item="item"/> </li>
         </ul>
-		
+		<div class="alert-success" v-if="success"><p>{{alert}} update !</p></div>
 	</div>
-
+	
 </template>
 <script >
 	import { mapState } from 'vuex'
@@ -34,7 +34,7 @@ export default {
 		}
 	},
 	computed: mapState([
-    	'list'
+    	'list','success','alert'
   	]),
 	methods:{
 		
@@ -45,6 +45,20 @@ export default {
 </script>
 
 <style>
+.alert-success{
+	position: absolute;
+    top: 0;
+    padding: 10px;
+    background-color: white;
+    width: 60%;
+    text-align: center;
+    border-bottom: 6px solid green;
+}
+.alert-success p{
+	font-weight: 900;
+	color:#28a745;
+	font-size: 1.35em;
+}
 .text-through{
 	text-decoration: line-through;
 }

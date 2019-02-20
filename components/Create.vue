@@ -20,6 +20,8 @@ export default {
     	
     		this.$store.dispatch('addTodo' , todo)
     		this.newTodo=''
+    		this.$store.dispatch('alertSuccess' , 'Create')
+        	setTimeout(() =>{ this.$store.commit('mutationSucess', false ) }, 2000)
 			
 		}
 	}

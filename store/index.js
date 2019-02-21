@@ -29,14 +29,11 @@ export const mutations = {
     state.list = todos
   },
   alertSuccess(state ,text){
-    
     state.success=true
-    state.alert=text
+    state.alert=text 
   },
   mutationSucess(state, value) {
-      // merge data with previous state
-      
-     state.success=false
+      state.success=false
     }
 }
 
@@ -55,6 +52,5 @@ export const actions= {
   },
   alertSuccess(state ,text){
     state.commit("alertSuccess", text)
-    
   }
 }

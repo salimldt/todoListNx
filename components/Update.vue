@@ -38,20 +38,27 @@ export default {
 		async updateTodo(e, item){
       //trouver une autre méthode pour concaténer tout ça
 			if(event.target.type === "checkbox"){
-				const todo = await this.$axios.$put('https://my-json-server.typicode.com/zwOk9/todoList/todo/' +this.item.id, {id:this.item.id,title:this.item.title,checked:event.target.checked})
-        //rajouter les responses pour voir si tout a bien été envoyé
-				this.$store.dispatch('updateData' , todo)
-        this.$store.dispatch('alertSuccess' , 'checkbox')
-        setTimeout(() =>{ this.$store.commit('mutationSucess', false ) }, 2000)
+        try{
+				  const todo = await this.$axios.$put('https://my-json-server.typicode.com/zwOk9/todoList/todo/' +this.item.id, {id:this.item.id,title:this.item.title,checked:event.target.checked})
+          //rajouter les responses pour voir si tout a bien été envoyé
+				  this.$store.dispatch('updateData' , todo)
+          this.$store.dispatch('alertSuccess' , 'checkbox')
+          setTimeout(() =>{ this.$store.commit('mutationSucess', false ) }, 2000)
+        }catch(error){
+          console.log(error)
+        }
 			}
 			if(event.target.type === "text"){
-				 const todo = await this.$axios.$put('https://my-json-server.typicode.com/zwOk9/todoList/todo/' +this.item.id, {id:this.item.id,title:event.target.value,checked:this.item.checked})
-				 this.$store.dispatch('updateData' , todo)
-         this.$store.dispatch('alertSuccess' , 'text')
+        try{
+				  const todo = await this.$axios.$put('https://my-json-server.typicode.com/zwOk9/todoList/todo/' +this.item.id, {id:this.item.id,title:event.target.value,checked:this.item.checked})
+				  this.$store.dispatch('updateData' , todo)
+          this.$store.dispatch('alertSuccess' , 'text')
          
-         this.edit=!this.edit
-         setTimeout(() =>{ this.$store.commit('mutationSucess', false ) }, 2000)
-         
+          this.edit=!this.edit
+          setTimeout(() =>{ this.$store.commit('mutationSucess', false ) }, 2000)
+        }catch(error){
+          console.log(error)
+        }
 			}
      
 			

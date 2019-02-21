@@ -16,12 +16,23 @@ export default {
 	},
 	methods:{
 		async create(){
-			const todo = await this.$axios.$post('https://my-json-server.typicode.com/zwOk9/todoList/todo', { title: this.newTodo, checked:false })
+			
+			try {
+
+				const todo = await this.$axios.$post('https://my-json-server.typicode.com/zwOk9/todoList/todo', { title: this.newTodo, checked:false })
+				this.$store.dispatch('addTodo' , todo)
+				this.newTodo=''
+    			this.$store.dispatch('alertSuccess' , 'Create')
+        		setTimeout(() =>{ this.$store.commit('mutationSucess', false ) }, 2000)
+        		
+			}catch(error){
+				console.log(error)
+			}
+
+			
     	
-    		this.$store.dispatch('addTodo' , todo)
-    		this.newTodo=''
-    		this.$store.dispatch('alertSuccess' , 'Create')
-        	setTimeout(() =>{ this.$store.commit('mutationSucess', false ) }, 2000)
+    		
+    		
 			
 		}
 	}

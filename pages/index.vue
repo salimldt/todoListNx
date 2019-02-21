@@ -14,7 +14,7 @@ import axios from 'axios'
 export default {
   
   fetch({ store }) {
-    store.commit('addData')
+    store.dispatch('addData')
   },
   components:{
     List
@@ -23,12 +23,11 @@ export default {
     'list'
   ]),
   async mounted(){
-    const todo = await this.$axios.$get('https://my-json-server.typicode.com/zwOk9/todoList/todo')
-    this.$store.commit('addData' , todo)
-  },
-  methods: {
-    increment() {
-      this.$store.commit('increment')
+    try{
+      const todo = await this.$axios.$get('https://my-json-server.typicode.com/zwOk9/todoList/todo')
+      this.$store.dispatch('addData' , todo)
+    }catch(error){
+      console.log(error)
     }
   }
 }
